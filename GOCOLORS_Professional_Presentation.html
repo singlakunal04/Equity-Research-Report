@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Fashion (GOCOLORS) - Professional Investment Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 60px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+            min-height: 700px;
+        }
+
+        .slide h1 {
+            font-size: 42px;
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .slide h2 {
+            font-size: 36px;
+            color: #0066cc;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 15px;
+        }
+
+        .slide h3 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .slide p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .slide ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .slide li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .slide-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 600px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            padding: 25px;
+            border-left: 5px solid #0066cc;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .metric-card h4 {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+
+        .metric-subtext {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .positive {
+            color: #10b981;
+        }
+
+        .negative {
+            color: #ef4444;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        table thead {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        .td-positive {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .td-negative {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background-color: #e8f4ff;
+            border-left: 5px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .highlight-box p {
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .risk-box {
+            background-color: #fef2f2;
+            border-left: 5px solid #ef4444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+
+        .chart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .linkedin-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            font-size: 12px;
+        }
+
+        .linkedin-footer a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f0fdf4 100%);
+            border: 2px solid #10b981;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .recommendation-box .rating {
+            font-size: 48px;
+            color: #10b981;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+
+        .target-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #f0f7ff 100%);
+            border: 2px solid #0066cc;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .target-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .target-price {
+            font-size: 42px;
+            color: #0066cc;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .disclaimer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .separator {
+            height: 3px;
+            background-color: #0066cc;
+            margin: 20px 0;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: COVER PAGE -->
+<div class="slide slide-center" style="position: relative;">
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="font-size: 56px; margin-bottom: 10px;">GO FASHION (INDIA) LIMITED</h1>
+        <p style="font-size: 20px; color: #666; margin-bottom: 30px;">Category Leader in Women's Bottom-wear Market</p>
+        
+        <div class="separator"></div>
+        
+        <div style="margin: 40px 0;">
+            <p style="font-size: 18px; font-weight: 600; color: #333; margin-bottom: 15px;">INVESTMENT RESEARCH REPORT</p>
+            <p style="font-size: 16px; color: #666; margin-bottom: 10px;"><strong>Ticker:</strong> GOCOLORS (NSE) | 543401 (BSE)</p>
+            <p style="font-size: 16px; color: #666;">As of December 15, 2025</p>
+        </div>
+
+        <div style="margin-top: 50px; background-color: #f0f7ff; padding: 25px; border-radius: 5px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                <div>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 5px;">Current Price</p>
+                    <p style="font-size: 28px; color: #0066cc; font-weight: 700;">₹470</p>
+                </div>
+                <div>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 5px;">12M Target</p>
+                    <p style="font-size: 28px; color: #0066cc; font-weight: 700;">₹750</p>
+                </div>
+                <div>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 5px;">24M Target</p>
+                    <p style="font-size: 28px; color: #0066cc; font-weight: 700;">₹920</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="margin-top: 40px; font-size: 18px; color: #10b981; font-weight: 700;">Rating: <span style="font-size: 24px;">BUY</span></p>
+    </div>
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 1</div>
+</div>
+
+<!-- SLIDE 2: EXECUTIVE SUMMARY -->
+<div class="slide" style="position: relative;">
+    <h2>Investment Thesis</h2>
+    
+    <div class="highlight-box">
+        <p><strong>✓ Market Leadership:</strong> 8% share in branded women's bottom-wear (₹31bn TAM growing 24% CAGR)</p>
+    </div>
+
+    <h3>Key Strengths</h3>
+    <ul>
+        <li><strong>Category Pioneer:</strong> Only exclusive bottom-wear brand in India. Built entire category from scratch.</li>
+        <li><strong>Financial Performance:</strong> FY25 Revenue ₹848Cr (+11% YoY), PAT ₹93.5Cr (+13% YoY), 31% EBITDA margins</li>
+        <li><strong>Balance Sheet:</strong> Zero Net Debt, ₹249Cr cash, strong liquidity for growth investment</li>
+        <li><strong>Growth Catalysts:</strong> Store expansion (80-90 FY26), new categories (activewear), international (Dubai partnership)</li>
+        <li><strong>Valuation:</strong> P/E 27.1x vs historical 35-40x = Discounted 58% from 52-week highs</li>
+    </ul>
+
+    <h3>Investment Opportunity</h3>
+    <div class="metric-grid">
+        <div class="metric-card">
+            <h4>12-Month Upside</h4>
+            <div class="metric-value positive">+59%</div>
+            <div class="metric-subtext">Target: ₹750</div>
+        </div>
+        <div class="metric-card">
+            <h4>24-Month Upside</h4>
+            <div class="metric-value positive">+96%</div>
+            <div class="metric-subtext">Target: ₹920</div>
+        </div>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 2</div>
+</div>
+
+<!-- SLIDE 3: FINANCIAL METRICS OVERVIEW -->
+<div class="slide" style="position: relative;">
+    <h2>FY25 Financial Performance Summary</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>FY25</th>
+                <th>FY24</th>
+                <th>Growth %</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Revenue (₹ Cr)</strong></td>
+                <td><strong>848</strong></td>
+                <td>763</td>
+                <td class="td-positive">+11.2%</td>
+                <td>✓ Solid growth</td>
+            </tr>
+            <tr>
+                <td><strong>EBITDA (₹ Cr)</strong></td>
+                <td><strong>263</strong></td>
+                <td>242</td>
+                <td class="td-positive">+8.7%</td>
+                <td>✓ Margin stable</td>
+            </tr>
+            <tr>
+                <td><strong>EBITDA Margin %</strong></td>
+                <td><strong>31.0%</strong></td>
+                <td>31.8%</td>
+                <td class="td-negative">-80 bps</td>
+                <td>⚠ Minor decline</td>
+            </tr>
+            <tr>
+                <td><strong>PAT (₹ Cr)</strong></td>
+                <td><strong>93.5</strong></td>
+                <td>83</td>
+                <td class="td-positive">+12.6%</td>
+                <td>✓ Strong growth</td>
+            </tr>
+            <tr>
+                <td><strong>PAT Margin %</strong></td>
+                <td><strong>11.0%</strong></td>
+                <td>10.9%</td>
+                <td class="td-positive">+10 bps</td>
+                <td>✓ Improved</td>
+            </tr>
+            <tr>
+                <td><strong>EPS (₹)</strong></td>
+                <td><strong>17.31</strong></td>
+                <td>15.32</td>
+                <td class="td-positive">+12.9%</td>
+                <td>✓ Strong EPS</td>
+            </tr>
+            <tr>
+                <td><strong>Cash Position (₹ Cr)</strong></td>
+                <td><strong>249</strong></td>
+                <td>217</td>
+                <td class="td-positive">+14.7%</td>
+                <td>✓ Strong balance sheet</td>
+            </tr>
+            <tr>
+                <td><strong>Net Debt</strong></td>
+                <td><strong>Nil</strong></td>
+                <td>Nil</td>
+                <td>No change</td>
+                <td>✓ Zero leverage</td>
+            </tr>
+            <tr>
+                <td><strong>Store Count</strong></td>
+                <td><strong>812</strong></td>
+                <td>714</td>
+                <td class="td-positive">+13.7%</td>
+                <td>✓ Network growth</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px; font-size: 14px; color: #666;"><strong>Source:</strong> Company FY25 Annual Report, Q2 FY26 Earnings Release (Nov 2025)</p>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 3</div>
+</div>
+
+<!-- SLIDE 4: REVENUE GROWTH TRAJECTORY -->
+<div class="slide" style="position: relative;">
+    <h2>Revenue Growth & Market Expansion</h2>
+
+    <div class="chart-container">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Background -->
+            <rect width="800" height="400" fill="white"/>
+            
+            <!-- Grid lines -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="260" x2="750" y2="260" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="140" x2="750" y2="140" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="80" x2="750" y2="80" stroke="#ddd" stroke-width="1"/>
+            
+            <!-- Y-axis labels (Revenue in ₹ Cr) -->
+            <text x="70" y="330" font-size="12" fill="#666">0</text>
+            <text x="70" y="270" font-size="12" fill="#666">25</text>
+            <text x="70" y="210" font-size="12" fill="#666">50</text>
+            <text x="70" y="150" font-size="12" fill="#666">75</text>
+            <text x="70" y="90" font-size="12" fill="#666">100</text>
+            
+            <!-- Data bars with values -->
+            <!-- FY20: 39.2 -->
+            <rect x="90" y="259" width="35" height="61" fill="#0066cc" opacity="0.8" rx="3"/>
+            <text x="107" y="275" font-size="13" font-weight="bold" fill="#0066cc" text-anchor="middle">39</text>
+            
+            <!-- FY21: 25.07 -->
+            <rect x="135" y="300" width="35" height="20" fill="#ef4444" opacity="0.8" rx="3"/>
+            <text x="152" y="320" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">25</text>
+            
+            <!-- FY22: 40.13 -->
+            <rect x="180" y="256" width="35" height="64" fill="#0066cc" opacity="0.8" rx="3"/>
+            <text x="197" y="272" font-size="13" font-weight="bold" fill="#0066cc" text-anchor="middle">40</text>
+            
+            <!-- FY23: 66.53 -->
+            <rect x="225" y="125" width="35" height="195" fill="#0066cc" opacity="0.8" rx="3"/>
+            <text x="242" y="170" font-size="13" font-weight="bold" fill="#0066cc" text-anchor="middle">67</text>
+            
+            <!-- FY24: 76.28 -->
+            <rect x="270" y="84" width="35" height="236" fill="#0066cc" opacity="0.8" rx="3"/>
+            <text x="287" y="130" font-size="13" font-weight="bold" fill="#0066cc" text-anchor="middle">76</text>
+            
+            <!-- FY25: 84.8 -->
+            <rect x="315" y="54" width="35" height="266" fill="#10b981" opacity="0.8" rx="3"/>
+            <text x="332" y="100" font-size="13" font-weight="bold" fill="#10b981" text-anchor="middle">85</text>
+            
+            <!-- Q1 FY26: 111.5 (quarterly, annualized ~446) -->
+            <rect x="360" y="-50" width="35" height="370" fill="#0066cc" opacity="0.6" rx="3"/>
+            <text x="377" y="30" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">Q1</text>
+            <text x="377" y="50" font-size="10" fill="#0066cc" text-anchor="middle">112*</text>
+            
+            <!-- Q2 FY26: 111.5 (quarterly) -->
+            <rect x="405" y="-50" width="35" height="370" fill="#0066cc" opacity="0.6" rx="3"/>
+            <text x="422" y="30" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">Q2</text>
+            <text x="422" y="50" font-size="10" fill="#0066cc" text-anchor="middle">112*</text>
+
+            <!-- X-axis -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#333" stroke-width="2"/>
+            <!-- Y-axis -->
+            <line x1="80" y1="320" x2="80" y2="20" stroke="#333" stroke-width="2"/>
+            
+            <!-- X-axis labels -->
+            <text x="107" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY20</text>
+            <text x="152" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY21</text>
+            <text x="197" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY22</text>
+            <text x="242" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY23</text>
+            <text x="287" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY24</text>
+            <text x="332" y="360" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY25</text>
+            <text x="377" y="360" font-size="11" fill="#333" text-anchor="middle" font-weight="600">Q1 FY26</text>
+            <text x="422" y="360" font-size="11" fill="#333" text-anchor="middle" font-weight="600">Q2 FY26</text>
+            
+            <!-- Title and legend -->
+            <text x="400" y="25" font-size="14" font-weight="bold" fill="#333" text-anchor="middle">Revenue Trend (₹ Crore)</text>
+            
+            <!-- CAGR annotation -->
+            <text x="600" y="100" font-size="13" fill="#0066cc" font-weight="600">FY20-FY25 CAGR:</text>
+            <text x="600" y="125" font-size="16" fill="#0066cc" font-weight="700">+16.7%</text>
+        </svg>
+    </div>
+
+    <div class="metric-grid">
+        <div class="metric-card">
+            <h4>5-Year CAGR (FY20-FY25)</h4>
+            <div class="metric-value positive">+16.7%</div>
+            <div class="metric-subtext">Strong consistent growth trajectory</div>
+        </div>
+        <div class="metric-card">
+            <h4>FY25 Growth Rate</h4>
+            <div class="metric-value positive">+11.2%</div>
+            <div class="metric-subtext">Resilient in challenging environment</div>
+        </div>
+    </div>
+
+    <p style="margin-top: 15px; font-size: 13px; color: #666;">* Q1 & Q2 FY26 are quarterly figures (₹111.5Cr each). H1 FY26 total: ₹223Cr (+4% YoY)</p>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 4</div>
+</div>
+
+<!-- SLIDE 5: PROFITABILITY TRENDS -->
+<div class="slide" style="position: relative;">
+    <h2>Profitability & Margin Evolution</h2>
+
+    <div class="chart-container">
+        <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Background -->
+            <rect width="900" height="400" fill="white"/>
+            
+            <!-- Grid lines for Y-axis -->
+            <line x1="100" y1="300" x2="850" y2="300" stroke="#ddd" stroke-width="1"/>
+            <line x1="100" y1="240" x2="850" y2="240" stroke="#ddd" stroke-width="1"/>
+            <line x1="100" y1="180" x2="850" y2="180" stroke="#ddd" stroke-width="1"/>
+            <line x1="100" y1="120" x2="850" y2="120" stroke="#ddd" stroke-width="1"/>
+            <line x1="100" y1="60" x2="850" y2="60" stroke="#ddd" stroke-width="1"/>
+            
+            <!-- Y-axis labels -->
+            <text x="90" y="310" font-size="11" fill="#666">0%</text>
+            <text x="90" y="250" font-size="11" fill="#666">10%</text>
+            <text x="90" y="190" font-size="11" fill="#666">20%</text>
+            <text x="90" y="130" font-size="11" fill="#666">30%</text>
+            <text x="90" y="70" font-size="11" fill="#666">40%</text>
+            
+            <!-- EBITDA Margin line (31.0%, 31.8%, 31.9%, 29.7%, 30.4%) -->
+            <polyline points="120,90 180,65 240,60 300,150 360,145" stroke="#0066cc" stroke-width="3" fill="none"/>
+            <circle cx="120" cy="90" r="4" fill="#0066cc"/>
+            <circle cx="180" cy="65" r="4" fill="#0066cc"/>
+            <circle cx="240" cy="60" r="4" fill="#0066cc"/>
+            <circle cx="300" cy="150" r="4" fill="#ef4444"/>
+            <circle cx="360" cy="145" r="4" fill="#0066cc"/>
+            
+            <!-- EBITDA Margin values -->
+            <text x="120" y="75" font-size="11" fill="#0066cc" text-anchor="middle" font-weight="600">31.0%</text>
+            <text x="180" y="45" font-size="11" fill="#0066cc" text-anchor="middle" font-weight="600">31.8%</text>
+            <text x="240" y="45" font-size="11" fill="#0066cc" text-anchor="middle" font-weight="600">31.9%</text>
+            <text x="300" y="170" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="600">29.7%</text>
+            <text x="360" y="130" font-size="11" fill="#0066cc" text-anchor="middle" font-weight="600">30.4%</text>
+            
+            <!-- PAT Margin line (10.6%, 10.8%, 10.9%, 9.7%) -->
+            <polyline points="420,235 480,220 540,215 600,270" stroke="#10b981" stroke-width="3" fill="none"/>
+            <circle cx="420" cy="235" r="4" fill="#10b981"/>
+            <circle cx="480" cy="220" r="4" fill="#10b981"/>
+            <circle cx="540" cy="215" r="4" fill="#10b981"/>
+            <circle cx="600" cy="270" r="4" fill="#10b981"/>
+            
+            <!-- PAT Margin values -->
+            <text x="420" y="255" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">10.6%</text>
+            <text x="480" y="200" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">10.8%</text>
+            <text x="540" y="200" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">10.9%</text>
+            <text x="600" y="290" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">9.7%</text>
+            
+            <!-- Axes -->
+            <line x1="100" y1="300" x2="850" y2="300" stroke="#333" stroke-width="2"/>
+            <line x1="100" y1="300" x2="100" y2="20" stroke="#333" stroke-width="2"/>
+            
+            <!-- X-axis labels -->
+            <text x="120" y="330" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY22</text>
+            <text x="180" y="330" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY23</text>
+            <text x="240" y="330" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY24</text>
+            <text x="300" y="330" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY25</text>
+            <text x="360" y="330" font-size="12" fill="#333" text-anchor="middle" font-weight="600">Q2 FY26</text>
+            
+            <!-- Legend -->
+            <line x1="450" y1="25" x2="470" y2="25" stroke="#0066cc" stroke-width="3"/>
+            <text x="480" y="30" font-size="12" fill="#333">EBITDA Margin</text>
+            
+            <line x1="450" y1="50" x2="470" y2="50" stroke="#10b981" stroke-width="3"/>
+            <text x="480" y="55" font-size="12" fill="#333">PAT Margin</text>
+        </svg>
+    </div>
+
+    <h3>Key Observations</h3>
+    <ul>
+        <li><strong>EBITDA Margin:</strong> Peak 31.9% (FY24), slight decline to 30.4% (Q2 FY26) due to rent increases and wage inflation</li>
+        <li><strong>PAT Margin:</strong> Stable at 10.6%-10.9%, slight dip to 9.7% (Q2 FY26) reflecting operational headwinds</li>
+        <li><strong>Gross Margin:</strong> Solid at 62-64%, demonstrating strong pricing power and product quality perception</li>
+        <li><strong>Outlook:</strong> Management expects margins to stabilize at 30-31% EBITDA as store leverage improves</li>
+    </ul>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 5</div>
+</div>
+
+<!-- SLIDE 6: EPS & EARNINGS GROWTH -->
+<div class="slide" style="position: relative;">
+    <h2>Earnings Per Share (EPS) Trajectory</h2>
+
+    <div class="chart-container">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Background -->
+            <rect width="800" height="400" fill="white"/>
+            
+            <!-- Grid lines -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="260" x2="750" y2="260" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="140" x2="750" y2="140" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="80" x2="750" y2="80" stroke="#ddd" stroke-width="1"/>
+            
+            <!-- Y-axis labels (EPS in ₹) -->
+            <text x="70" y="330" font-size="11" fill="#666">0</text>
+            <text x="70" y="270" font-size="11" fill="#666">5</text>
+            <text x="70" y="210" font-size="11" fill="#666">10</text>
+            <text x="70" y="150" font-size="11" fill="#666">15</text>
+            <text x="70" y="90" font-size="11" fill="#666">20</text>
+            
+            <!-- Data bars -->
+            <!-- FY20: 0.41 -->
+            <rect x="90" y="310" width="35" height="10" fill="#ef4444" opacity="0.8" rx="2"/>
+            <text x="107" y="330" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">0.4</text>
+            
+            <!-- FY21: -0.07 -->
+            <rect x="135" y="320" width="35" height="1" fill="#ef4444" opacity="0.8" rx="2"/>
+            <text x="152" y="340" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">-0.1</text>
+            
+            <!-- FY22: 0.67 -->
+            <rect x="180" y="304" width="35" height="16" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="197" y="325" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">0.7</text>
+            
+            <!-- FY23: 1.53 -->
+            <rect x="225" y="264" width="35" height="56" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="242" y="300" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">1.5</text>
+            
+            <!-- FY24: 1.53 -->
+            <rect x="270" y="264" width="35" height="56" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="287" y="300" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">1.5</text>
+            
+            <!-- FY25: 17.31 -->
+            <rect x="315" y="41" width="35" height="279" fill="#10b981" opacity="0.8" rx="2"/>
+            <text x="332" y="110" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">17.3</text>
+            
+            <!-- Q2 FY26 (H1): est 16.35 -->
+            <rect x="360" y="50" width="35" height="270" fill="#0066cc" opacity="0.6" rx="2"/>
+            <text x="377" y="115" font-size="11" font-weight="bold" fill="#0066cc" text-anchor="middle">~16</text>
+            
+            <!-- Axes -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#333" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="20" stroke="#333" stroke-width="2"/>
+            
+            <!-- X-axis labels -->
+            <text x="107" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY20</text>
+            <text x="152" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY21</text>
+            <text x="197" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY22</text>
+            <text x="242" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY23</text>
+            <text x="287" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY24</text>
+            <text x="332" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY25</text>
+            <text x="377" y="355" font-size="11" fill="#333" text-anchor="middle" font-weight="600">H1 FY26</text>
+            
+            <!-- Title -->
+            <text x="400" y="25" font-size="13" font-weight="bold" fill="#333" text-anchor="middle">EPS Growth (₹)</text>
+        </svg>
+    </div>
+
+    <div class="metric-grid">
+        <div class="metric-card">
+            <h4>FY25 EPS</h4>
+            <div class="metric-value positive">₹17.31</div>
+            <div class="metric-subtext">+12.9% YoY growth</div>
+        </div>
+        <div class="metric-card">
+            <h4>FY20-FY25 CAGR</h4>
+            <div class="metric-value positive">+107%</div>
+            <div class="metric-subtext">Exceptional long-term growth</div>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 13px; color: #666;"><strong>Note:</strong> FY25 marks a return to normalized EPS after FY24 stagnation. Trend reversal reflects operational improvements and cost management.</p>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 6</div>
+</div>
+
+<!-- SLIDE 7: STORE EXPANSION & NETWORK GROWTH -->
+<div class="slide" style="position: relative;">
+    <h2>Retail Network Expansion</h2>
+
+    <div class="chart-container">
+        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Background -->
+            <rect width="800" height="400" fill="white"/>
+            
+            <!-- Grid lines -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="260" x2="750" y2="260" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="200" x2="750" y2="200" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="140" x2="750" y2="140" stroke="#ddd" stroke-width="1"/>
+            <line x1="80" y1="80" x2="750" y2="80" stroke="#ddd" stroke-width="1"/>
+            
+            <!-- Y-axis labels (Stores) -->
+            <text x="70" y="330" font-size="11" fill="#666">0</text>
+            <text x="70" y="270" font-size="11" fill="#666">250</text>
+            <text x="70" y="210" font-size="11" fill="#666">500</text>
+            <text x="70" y="150" font-size="11" fill="#666">750</text>
+            <text x="70" y="90" font-size="11" fill="#666">1000</text>
+            
+            <!-- Data bars -->
+            <!-- FY20: 261 -->
+            <rect x="90" y="237" width="35" height="83" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="107" y="290" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">261</text>
+            
+            <!-- FY21: 290 -->
+            <rect x="135" y="222" width="35" height="98" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="152" y="280" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">290</text>
+            
+            <!-- FY22: 344 -->
+            <rect x="180" y="197" width="35" height="123" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="197" y="270" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">344</text>
+            
+            <!-- FY23: 471 -->
+            <rect x="225" y="119" width="35" height="201" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="242" y="200" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">471</text>
+            
+            <!-- FY24: 714 -->
+            <rect x="270" y="-4" width="35" height="324" fill="#0066cc" opacity="0.8" rx="2"/>
+            <text x="287" y="130" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">714</text>
+            
+            <!-- FY25: 812 -->
+            <rect x="315" y="-42" width="35" height="362" fill="#10b981" opacity="0.8" rx="2"/>
+            <text x="332" y="110" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">812</text>
+            
+            <!-- Q2 FY26: 812 (flat) -->
+            <rect x="360" y="-42" width="35" height="362" fill="#ef4444" opacity="0.6" rx="2"/>
+            <text x="377" y="110" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">812</text>
+            
+            <!-- Axes -->
+            <line x1="80" y1="320" x2="750" y2="320" stroke="#333" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="20" stroke="#333" stroke-width="2"/>
+            
+            <!-- X-axis labels -->
+            <text x="107" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY20</text>
+            <text x="152" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY21</text>
+            <text x="197" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY22</text>
+            <text x="242" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY23</text>
+            <text x="287" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY24</text>
+            <text x="332" y="355" font-size="12" fill="#333" text-anchor="middle" font-weight="600">FY25</text>
+            <text x="377" y="355" font-size="11" fill="#333" text-anchor="middle" font-weight="600">Q2 FY26</text>
+            
+            <!-- Title -->
+            <text x="400" y="25" font-size="13" font-weight="bold" fill="#333" text-anchor="middle">Exclusive Brand Outlets (EBOs) Growth</text>
+        </svg>
+    </div>
+
+    <h3>Network Expansion Strategy</h3>
+    <ul>
+        <li><strong>Current Network:</strong> 812 EBOs across 180+ cities (Q2 FY26)</li>
+        <li><strong>FY25 Growth:</strong> +98 net new stores (+13.7%), largest expansion in company history</li>
+        <li><strong>FY26 Guidance:</strong> Revised downward to 80-90 net new stores (from 120) due to demand slowdown and strategic consolidation</li>
+        <li><strong>Geographic Diversification:</strong> Presence across metro, tier-1, tier-2, and emerging tier-3 cities</li>
+        <li><strong>Store Economics:</strong> Improving per-store productivity, average ASP ₹769 with 40-45% repeat purchase rate</li>
+    </ul>
+
+    <p style="margin-top: 15px; font-size: 13px; color: #666;"><strong>Note:</strong> Flat store count Q2 FY26 reflects planned consolidation and focus on store quality over quantity.</p>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 7</div>
+</div>
+
+<!-- SLIDE 8: INDUSTRY ANALYSIS -->
+<div class="slide" style="position: relative;">
+    <h2>Market Opportunity & Category Dynamics</h2>
+
+    <h3>Addressable Market Size (TAM)</h3>
+    <div class="highlight-box">
+        <p><strong>Women's Bottom-wear TAM:</strong> ₹31 billion (FY24) → ₹98.5 billion (FY25E) at 24.3% CAGR</p>
+    </div>
+
+    <h3>Market Structure & Go Fashion's Position</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Segment</th>
+                <th>Market Size</th>
+                <th>Growth Rate</th>
+                <th>Go Fashion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Organized Branded</strong></td>
+                <td>₹31 Bn</td>
+                <td class="td-positive">+24% CAGR</td>
+                <td><strong>8% share</strong> (₹2.5 Bn)</td>
+            </tr>
+            <tr>
+                <td>Unorganized</td>
+                <td>₹45 Bn</td>
+                <td>Shrinking</td>
+                <td>Negligible</td>
+            </tr>
+            <tr>
+                <td><strong>Total TAM</strong></td>
+                <td><strong>₹76 Bn</strong></td>
+                <td class="td-positive"><strong>+15% CAGR</strong></td>
+                <td><strong>3.3% total</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Market Trends</h3>
+    <ul>
+        <li><strong>Formalization Shift:</strong> Branded penetration rising from 34% (FY20) → 47.8% (FY25E) at 25.1% CAGR</li>
+        <li><strong>Category Trends:</strong> Mix & Match concept gaining traction, athleisure/comfort wear emerging, premiumization</li>
+        <li><strong>Competitive Landscape:</strong> Go Fashion is 2-3x larger than next competitors. Limited direct competition in exclusive bottom-wear space</li>
+        <li><strong>Customer Preference:</strong> Increasing willingness to pay premium for branded, comfort-focused products</li>
+        <li><strong>E-commerce Growth:</strong> D2C/online channels growing 25%+ but still only 15% of organized market</li>
+    </ul>
+
+    <h3>Competitive Advantages</h3>
+    <div class="grid-3">
+        <div class="metric-card">
+            <h4>Category Pioneer</h4>
+            <p style="font-size: 14px; color: #333; line-height: 1.6;">Only exclusive bottom-wear brand. Built entire category. Brand = Category in consumer mind.</p>
+        </div>
+        <div class="metric-card">
+            <h4>Premium Positioning</h4>
+            <p style="font-size: 14px; color: #333; line-height: 1.6;">97% full-price sales, 68% store-level gross margin, strong pricing power</p>
+        </div>
+        <div class="metric-card">
+            <h4>Distribution Network</h4>
+            <p style="font-size: 14px; color: #333; line-height: 1.6;">812 EBOs (largest in category), 180+ cities, 71% revenue from own stores</p>
+        </div>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 8</div>
+</div>
+
+<!-- SLIDE 9: Q2 FY26 PERFORMANCE DEEP DIVE -->
+<div class="slide" style="position: relative;">
+    <h2>Q2 FY26 Results Analysis (Oct-Dec 2024)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Q2 FY26</th>
+                <th>Q2 FY25</th>
+                <th>YoY Change</th>
+                <th>Implication</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Revenue</strong></td>
+                <td>₹224 Cr</td>
+                <td>₹209 Cr</td>
+                <td class="td-positive">+7.2%</td>
+                <td>Modest growth, demand concerns</td>
+            </tr>
+            <tr>
+                <td><strong>EBITDA</strong></td>
+                <td>₹67 Cr</td>
+                <td>₹64 Cr</td>
+                <td class="td-positive">+5.5%</td>
+                <td>Margin contraction ongoing</td>
+            </tr>
+            <tr>
+                <td><strong>EBITDA Margin</strong></td>
+                <td>30.4%</td>
+                <td>29.7%</td>
+                <td class="td-positive">+70 bps</td>
+                <td>Margin stabilization starting</td>
+            </tr>
+            <tr>
+                <td><strong>PAT</strong></td>
+                <td>₹22 Cr</td>
+                <td>₹21 Cr</td>
+                <td class="td-positive">+6.2%</td>
+                <td>Profit growth lagging revenue</td>
+            </tr>
+            <tr>
+                <td><strong>SSSG (EBOs)</strong></td>
+                <td>Flat</td>
+                <td>+2.1%</td>
+                <td class="td-negative">Deceleration</td>
+                <td>⚠️ Key concern: Demand slowdown</td>
+            </tr>
+            <tr>
+                <td><strong>Cash Position</strong></td>
+                <td>₹259 Cr</td>
+                <td>₹217 Cr</td>
+                <td class="td-positive">+19.4%</td>
+                <td>Strong liquidity maintained</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="risk-box">
+        <p><strong>⚠️ Key Concern - Flat SSSG:</strong> Same-store sales growth turned flat post-Diwali 2024, signaling demand slowdown. This prompted management to revise FY26 store addition target from 120 to 80-90 stores. However, early festive season data (post-October) shows improved demand and positive volume uptick in key markets.</p>
+    </div>
+
+    <h3>Management Commentary Highlights</h3>
+    <ul>
+        <li>Early festive season (Oct-Nov) showing signs of recovery with improved consumer sentiment</li>
+        <li>Gross margin stable at 62-63%, supporting pricing power</li>
+        <li>Inventory management excellent (inventory days down 22 days YoY)</li>
+        <li>ROCE 16.4%, ROE 12.7% - reasonable but need improvement to justify valuations</li>
+    </ul>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 9</div>
+</div>
+
+<!-- SLIDE 10: VALUATION ANALYSIS - 12 MONTH TARGET -->
+<div class="slide" style="position: relative;">
+    <h2>12-Month Target Price: December 2026 (₹750)</h2>
+
+    <h3>Base Case Valuation (50% Probability)</h3>
+    <div class="target-section">
+        <div class="target-label">FY26E EPS</div>
+        <div style="font-size: 24px; color: #0066cc; font-weight: 700; margin-bottom: 10px;">₹19.0</div>
+        
+        <div class="target-label" style="margin-top: 15px;">FY27E EPS</div>
+        <div style="font-size: 24px; color: #0066cc; font-weight: 700; margin-bottom: 10px;">₹23.0</div>
+        
+        <div class="target-label" style="margin-top: 15px;">Applied P/E Multiple</div>
+        <div style="font-size: 28px; color: #0066cc; font-weight: 700; margin-bottom: 10px;">32.6x</div>
+        
+        <div class="target-label" style="margin-top: 15px;">Target Price Calculation</div>
+        <div style="font-size: 20px; color: #0066cc; font-weight: 600;">₹23 × 32.6x = <strong style="font-size: 28px;">₹750</strong></div>
+        
+        <div class="target-label" style="margin-top: 15px;">Upside from Current (₹470)</div>
+        <div style="font-size: 28px; color: #10b981; font-weight: 700;">+59%</div>
+    </div>
+
+    <h3>P/E Multiple Justification</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+                <th>Peer Avg</th>
+                <th>Justification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Current P/E</strong></td>
+                <td>27.1x</td>
+                <td>35-40x</td>
+                <td>Discounted due to near-term demand slowdown</td>
+            </tr>
+            <tr>
+                <td><strong>FY27E P/E</strong></td>
+                <td>32.6x</td>
+                <td>30-35x</td>
+                <td>Fair for 15%+ growth + 31% EBITDA margins</td>
+            </tr>
+            <tr>
+                <td><strong>Historical P/E (3yr avg)</strong></td>
+                <td>35-40x</td>
+                <td>-</td>
+                <td>Recovery to historical norms = upside</td>
+            </tr>
+            <tr>
+                <td><strong>Justification</strong></td>
+                <td colspan="3">Market leader (8% share), high-growth TAM (24% CAGR), strong margins (31% EBITDA), zero debt, 40%+ repeat customers</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 10</div>
+</div>
+
+<!-- SLIDE 11: SCENARIO ANALYSIS - BASE, BULL, BEAR -->
+<div class="slide" style="position: relative;">
+    <h2>Three-Scenario Valuation (12-Month)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Bear Case (25%)</th>
+                <th>Base Case (50%)</th>
+                <th>Bull Case (25%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Probability</strong></td>
+                <td>25%</td>
+                <td>50%</td>
+                <td>25%</td>
+            </tr>
+            <tr>
+                <td><strong>FY26E Revenue</strong></td>
+                <td>₹910 Cr</td>
+                <td>₹950 Cr</td>
+                <td>₹1,000 Cr</td>
+            </tr>
+            <tr>
+                <td><strong>FY26E Growth</strong></td>
+                <td class="td-negative">+7.5%</td>
+                <td class="td-positive">+12%</td>
+                <td class="td-positive">+18%</td>
+            </tr>
+            <tr>
+                <td><strong>FY26E EBITDA Margin</strong></td>
+                <td>28%</td>
+                <td>30%</td>
+                <td>31.5%</td>
+            </tr>
+            <tr>
+                <td><strong>FY26E EPS</strong></td>
+                <td>₹17.0</td>
+                <td>₹19.0</td>
+                <td>₹21.0</td>
+            </tr>
+            <tr>
+                <td><strong>FY27E EPS</strong></td>
+                <td>₹20.0</td>
+                <td>₹23.0</td>
+                <td>₹26.0</td>
+            </tr>
+            <tr>
+                <td><strong>Applied P/E (FY27)</strong></td>
+                <td>29.0x</td>
+                <td>32.6x</td>
+                <td>35.4x</td>
+            </tr>
+            <tr>
+                <td><strong>12M Target Price</strong></td>
+                <td class="td-negative"><strong>₹580</strong></td>
+                <td style="color: #0066cc; font-weight: 600;"><strong>₹750</strong></td>
+                <td class="td-positive"><strong>₹920</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Upside/(Downside)</strong></td>
+                <td class="td-negative">-23%</td>
+                <td class="td-positive">+59%</td>
+                <td class="td-positive">+96%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Scenario Triggers</h3>
+    <div class="grid-3">
+        <div style="background: #fef2f2; padding: 15px; border-radius: 3px; border-left: 4px solid #ef4444;">
+            <h4 style="color: #ef4444; font-size: 14px; margin-bottom: 10px;">⚠️ Bear Case Triggers</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li>SSSG remains flat throughout FY26</li>
+                <li>Margin compression to 28% or below</li>
+                <li>New category launches fail to gain traction</li>
+                <li>Competition from larger players intensifies</li>
+            </ul>
+        </div>
+        
+        <div style="background: #f0f7ff; padding: 15px; border-radius: 3px; border-left: 4px solid #0066cc;">
+            <h4 style="color: #0066cc; font-size: 14px; margin-bottom: 10px;">✓ Base Case Triggers</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li>SSSG recovers to 2-3% in H2FY26</li>
+                <li>Margins stabilize at 30-31%</li>
+                <li>Store expansion 80-90 as guided</li>
+                <li>Dubai pilot successful</li>
+            </ul>
+        </div>
+        
+        <div style="background: #f0fdf4; padding: 15px; border-radius: 3px; border-left: 4px solid #10b981;">
+            <h4 style="color: #10b981; font-size: 14px; margin-bottom: 10px;">🚀 Bull Case Triggers</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li>SSSG > 5% as market normalizes</li>
+                <li>Margins expand to 31.5% via leverage</li>
+                <li>New categories (activewear) scale to 15%+ of sales</li>
+                <li>International expansion accelerates</li>
+            </ul>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 13px; color: #666;"><strong>Expected Return (Probability-Weighted):</strong> (580 × 0.25) + (750 × 0.50) + (920 × 0.25) = ₹750 | Risk-Reward Ratio: 2.4x (attractive for long-term investors)</p>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 11</div>
+</div>
+
+<!-- SLIDE 12: 24-MONTH OUTLOOK -->
+<div class="slide" style="position: relative;">
+    <h2>24-Month Extended Outlook (December 2027)</h2>
+
+    <div class="target-section">
+        <div class="target-label">FY27E EPS Range</div>
+        <div style="font-size: 24px; color: #0066cc; font-weight: 700; margin-bottom: 10px;">₹26-28</div>
+        
+        <div class="target-label" style="margin-top: 15px;">Applied P/E Multiple</div>
+        <div style="font-size: 24px; color: #0066cc; font-weight: 700; margin-bottom: 10px;">35-37x</div>
+        
+        <div class="target-label" style="margin-top: 15px;">24-Month Price Potential</div>
+        <div style="font-size: 28px; color: #0066cc; font-weight: 700;">₹920 - ₹1,050</div>
+        
+        <div class="target-label" style="margin-top: 15px;">Upside from Current (₹470)</div>
+        <div style="font-size: 28px; color: #10b981; font-weight: 700;">+96% to +123%</div>
+    </div>
+
+    <h3>Path to FY27E Targets</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>FY Period</th>
+                <th>Revenue (₹Cr)</th>
+                <th>EBITDA Margin</th>
+                <th>EPS (₹)</th>
+                <th>Key Catalyst</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>FY26E</strong></td>
+                <td>₹950-1,000</td>
+                <td>30-31%</td>
+                <td>₹19-21</td>
+                <td>SSSG recovery, margin stabilization</td>
+            </tr>
+            <tr>
+                <td><strong>FY27E</strong></td>
+                <td>₹1,095-1,150</td>
+                <td>31-32%</td>
+                <td>₹26-28</td>
+                <td>New categories scale, store productivity up</td>
+            </tr>
+            <tr>
+                <td><strong>CAGR FY25-FY27E</strong></td>
+                <td class="td-positive">+14-15%</td>
+                <td>Stable</td>
+                <td class="td-positive">+23-25%</td>
+                <td>Earnings accretion from growth + leverage</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Critical Success Factors (FY26-FY27)</h3>
+    <ul>
+        <li><strong>SSSG Recovery:</strong> Need 2-3% growth in FY26, accelerating to 3-5% in FY27 to achieve targets</li>
+        <li><strong>New Category Traction:</strong> Activewear/topwear must reach 15-20% of sales by FY27 to drive growth beyond bottom-wear TAM limitations</li>
+        <li><strong>Store Productivity:</strong> Average per-store revenue must grow from ₹1.04 Cr (FY25) to ₹1.35+ Cr (FY27) via inventory optimization and SKU expansion</li>
+        <li><strong>International Scaling:</strong> Dubai pilot with Apparel Group should expand to 5-10 stores by FY27, validating international model</li>
+        <li><strong>Margin Management:</strong> Control rent inflation and wage growth to maintain 31%+ EBITDA margins despite competitive pressures</li>
+    </ul>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 12</div>
+</div>
+
+<!-- SLIDE 13: QUARTERLY PRICE PATH -->
+<div class="slide" style="position: relative;">
+    <h2>Quarterly Price Path & Catalysts (12 Months)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Period</th>
+                <th>Expected Price Range</th>
+                <th>Key Catalysts & Events</th>
+                <th>Probability %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Q4 FY26</strong><br>(Jan-Mar 2026)</td>
+                <td>₹520-580</td>
+                <td>Q3 results (Jan), FY26 guidance refinement, SSSG recovery signals, inventory update</td>
+                <td>65%</td>
+            </tr>
+            <tr>
+                <td><strong>Q1 FY27</strong><br>(Apr-Jun 2026)</td>
+                <td>₹600-660</td>
+                <td>Full FY26 results + FY27 guidance (May), store count milestone (850+), margin stabilization</td>
+                <td>70%</td>
+            </tr>
+            <tr>
+                <td><strong>Q2 FY27</strong><br>(Jul-Sep 2026)</td>
+                <td>₹680-740</td>
+                <td>Q1 FY27 results (Aug), activewear launch performance, monsoon season demand, analyst revisions upward</td>
+                <td>75%</td>
+            </tr>
+            <tr>
+                <td><strong>Q3 FY27</strong><br>(Oct-Dec 2026)</td>
+                <td>₹720-800</td>
+                <td>Diwali 2025 sales trends, Q2 FY27 results (Nov), international expansion update, year-end projections</td>
+                <td>80%</td>
+            </tr>
+            <tr>
+                <td><strong>12M Target</strong><br><strong>(Dec 2026)</strong></td>
+                <td style="color: #0066cc; font-weight: 700;"><strong>₹750 (Base)</strong></td>
+                <td><strong>Normalized valuation multiples, earnings re-rating on growth confirmation</strong></td>
+                <td><strong>50%</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Price Path Assumptions</h3>
+    <ul>
+        <li><strong>Gradual Recovery:</strong> Stock to recover 5-10% every quarter as SSSG stabilizes and new catalysts emerge</li>
+        <li><strong>Volatility:</strong> Expect 10-15% swings on quarterly results based on SSSG and margin delivery vs expectations</li>
+        <li><strong>Key Inflection:</strong> Q1 FY27 results (May 2026) will be critical - strong FY27 guidance could trigger 15-20% rally to ₹650+</li>
+        <li><strong>Downside Risk:</strong> If SSSG remains flat in Q4FY26 results, stock could dip to ₹450-500 before recovering on new catalyst visibility</li>
+    </ul>
+
+    <div class="metric-card" style="margin-top: 20px;">
+        <h4>Investment Horizon</h4>
+        <p style="font-size: 14px; color: #333; line-height: 1.6;">Ideal for 12-24 month holding. Entry at ₹470 offers asymmetric risk-reward. Near-term volatility expected; conviction should be maintained given business fundamentals.</p>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 13</div>
+</div>
+
+<!-- SLIDE 14: INVESTMENT RECOMMENDATION -->
+<div class="slide slide-center" style="position: relative; min-height: 800px; padding: 80px 60px;">
+    <div style="width: 100%; text-align: center;">
+        <h1 style="font-size: 48px; margin-bottom: 30px;">INVESTMENT RECOMMENDATION</h1>
+        
+        <div class="recommendation-box" style="margin: 30px auto; max-width: 500px;">
+            <div style="font-size: 16px; color: #666; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Overall Rating</div>
+            <div class="rating">BUY</div>
+            <div style="font-size: 14px; color: #666; margin-top: 15px;">Conviction Level: <strong>MEDIUM-HIGH</strong></div>
+        </div>
+
+        <div class="target-section" style="margin: 30px auto; max-width: 600px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                <div>
+                    <div class="target-label">Current Price</div>
+                    <div style="font-size: 28px; color: #666; font-weight: 700;">₹470</div>
+                </div>
+                <div>
+                    <div class="target-label">12M Target</div>
+                    <div style="font-size: 28px; color: #0066cc; font-weight: 700;">₹750</div>
+                </div>
+                <div>
+                    <div class="target-label">Upside</div>
+                    <div style="font-size: 28px; color: #10b981; font-weight: 700;">+59%</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: #0066cc; margin-top: 40px; margin-bottom: 20px;">Risk-Reward Profile</h3>
+        <div style="background: #f0f7ff; padding: 20px; border-radius: 3px; margin: 20px auto; max-width: 600px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
+                <div>
+                    <div style="font-size: 13px; color: #666; margin-bottom: 5px;">Upside Potential</div>
+                    <div style="font-size: 24px; color: #10b981; font-weight: 700;">+59%</div>
+                </div>
+                <div>
+                    <div style="font-size: 13px; color: #666; margin-bottom: 5px;">Downside Risk</div>
+                    <div style="font-size: 24px; color: #ef4444; font-weight: 700;">-23%</div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ccc; padding-top: 15px; text-align: center;">
+                <div style="font-size: 13px; color: #666; margin-bottom: 5px;">Risk-Reward Ratio</div>
+                <div style="font-size: 28px; color: #0066cc; font-weight: 700;">2.4x</div>
+                <div style="font-size: 12px; color: #666; margin-top: 8px;">Highly Attractive</div>
+            </div>
+        </div>
+
+        <h3 style="color: #0066cc; margin-top: 40px; margin-bottom: 20px;">Investment Thesis Summary</h3>
+        <div class="highlight-box" style="margin: 20px auto; max-width: 700px; text-align: left;">
+            <p style="margin-bottom: 10px;"><strong>✓ Market Leadership:</strong> Category pioneer with 8% share in high-growth women's bottom-wear market (24% CAGR). Durable competitive moat built through brand, distribution, and pricing power.</p>
+            <p style="margin-bottom: 10px;"><strong>✓ Strong Fundamentals:</strong> 31% EBITDA margins, zero debt, ₹249Cr cash, 40%+ repeat customers, 812 EBOs across 180+ cities.</p>
+            <p style="margin-bottom: 10px;"><strong>✓ Valuation Opportunity:</strong> Current P/E 27.1x vs historical 35-40x. Discounted 58% from 52-week highs. Fair value ₹750 supported by multiple methodologies.</p>
+            <p style="margin-bottom: 10px;"><strong>✓ Growth Catalysts:</strong> FY26 store expansion (80-90), new category launches (activewear), international (Dubai partnership), margin recovery in H2 FY26.</p>
+            <p><strong>⚠️ Key Risk:</strong> Near-term demand slowdown (flat SSSG in Q2 FY26) requires patience. Recovery to 2-3% SSSG by H2 FY26 critical for thesis validation. Macro uncertainty could delay recovery timeline.</p>
+        </div>
+
+        <h3 style="color: #0066cc; margin-top: 40px; margin-bottom: 20px;">Recommendation Summary</h3>
+        <div style="background: #f0fdf4; padding: 20px; border-radius: 3px; margin: 20px auto; max-width: 700px; text-align: left; border: 2px solid #10b981;">
+            <p style="font-size: 15px; color: #333; line-height: 1.8;">
+                <strong>Go Fashion represents an attractive opportunity for long-term investors seeking exposure to India's formalization and premiumization trends in apparel retail.</strong> Market leadership in a high-growth category, strong balance sheet, and valuation depression create compelling risk-reward. Suitable for investors with 12-24 month holding period who can tolerate near-term volatility. 
+                <br><br>
+                <strong>Target Entry Price:</strong> ₹470-500 | <strong>Target Exit:</strong> ₹750-920 over 12-24 months | <strong>Stop Loss:</strong> ₹380 (if SSSG fails to recover by Q1 FY27)
+            </p>
+        </div>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 14</div>
+</div>
+
+<!-- SLIDE 15: KEY RISKS TO INVESTMENT THESIS -->
+<div class="slide" style="position: relative;">
+    <h2>Key Risks & Risk Mitigation</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Risk Category</th>
+                <th>Description</th>
+                <th>Probability</th>
+                <th>Impact</th>
+                <th>Mitigation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Demand Slowdown</strong></td>
+                <td>Consumer spending weakness, macro uncertainty, retail footfalls declining</td>
+                <td>Medium (40%)</td>
+                <td class="td-negative">-25%</td>
+                <td>SSSG recovery visible by Q4 FY26; diversification into new categories</td>
+            </tr>
+            <tr>
+                <td><strong>Margin Compression</strong></td>
+                <td>Rising rent (10%+ YoY), wage inflation, limited pricing power in deflationary environment</td>
+                <td>Medium (35%)</td>
+                <td class="td-negative">-20%</td>
+                <td>Gross margin stable at 62-64%; operating leverage kicking in from store network</td>
+            </tr>
+            <tr>
+                <td><strong>Competition Intensification</strong></td>
+                <td>Large players (Trent, Westside) entering bottom-wear; unbranded consolidation</td>
+                <td>Medium (30%)</td>
+                <td class="td-negative">-20 to -30%</td>
+                <td>8% market share leader, premium positioning, brand moat defensible</td>
+            </tr>
+            <tr>
+                <td><strong>New Category Failure</strong></td>
+                <td>Activewear/topwear launches fail to gain traction; dilutes brand focus</td>
+                <td>Low (20%)</td>
+                <td class="td-negative">-15%</td>
+                <td>Pilot testing underway; management has shown execution capability</td>
+            </tr>
+            <tr>
+                <td><strong>Execution Risk</strong></td>
+                <td>Store expansion targets missed; key management exits; supply chain disruptions</td>
+                <td>Low (15%)</td>
+                <td class="td-negative">-10 to -15%</td>
+                <td>Strong management team (Gautam Saraogi), track record of delivery (FY20-FY25)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Downside Scenario (Bear Case: ₹580)</h3>
+    <ul>
+        <li>SSSG remains flat throughout FY26 (no recovery narrative)</li>
+        <li>EBITDA margins compress to 28% or below due to rent/wage inflation</li>
+        <li>New category launches struggle to contribute meaningfully to growth</li>
+        <li>Competitive landscape deteriorates with price-based competition</li>
+        <li>Market re-rates to 29x P/E (vs historical 35-40x), limiting multiple expansion</li>
+    </ul>
+
+    <h3>Mitigation & Monitoring Framework</h3>
+    <ul>
+        <li><strong>SSSG Tracking:</strong> Monitor quarterly same-store sales growth trends. Recovery to 2-3% by Q4 FY26 is critical for investment thesis.</li>
+        <li><strong>Margin Watch:</strong> Track gross margin (target 62-64%) and EBITDA margin (target 30-31%) quarterly. Early warning if trending below 29%.</li>
+        <li><strong>New Category Performance:</strong> Monitor activewear/topwear traction. Target: 10%+ of sales by FY27E. Below 5% would signal execution issues.</li>
+        <li><strong>Valuation Discipline:</strong> Take profits if stock reaches ₹850+ on positive catalysts. Reassess thesis if SSSG remains flat beyond Q1 FY27.</li>
+    </ul>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 15</div>
+</div>
+
+<!-- SLIDE 16: MANAGEMENT QUALITY & GOVERNANCE -->
+<div class="slide" style="position: relative;">
+    <h2>Management Quality & Corporate Governance</h2>
+
+    <h3>Leadership Profile</h3>
+    <div style="background: #f0f7ff; padding: 20px; border-radius: 3px; margin: 20px 0;">
+        <p style="font-size: 16px; font-weight: 600; color: #0066cc; margin-bottom: 10px;">Gautam Saraogi, Executive Director & CEO (Age 37)</p>
+        <ul style="font-size: 14px;">
+            <li><strong>Experience:</strong> 15+ years in retail & fashion business; second-generation entrepreneur</li>
+            <li><strong>Track Record:</strong> Led company from ₹250Cr (FY20) to ₹848Cr (FY25); consistent guidance delivery on store growth, margins, profitability</li>
+            <li><strong>Vision:</strong> Strong focus on brand building, category leadership, operational efficiency; pioneered exclusive bottom-wear concept in India</li>
+            <li><strong>Capital Allocation:</strong> Conservative (no dividend payout), reinvest profits for growth, debt-free model</li>
+        </ul>
+    </div>
+
+    <h3>Board Composition & Governance</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Name</th>
+                <th>Background</th>
+                <th>Independence</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Chairman & CEO</td>
+                <td>Gautam Saraogi</td>
+                <td>Promoter, Executive</td>
+                <td>Related Party</td>
+            </tr>
+            <tr>
+                <td>Independent Director</td>
+                <td>Multiple IDs</td>
+                <td>Industry experts, finance professionals</td>
+                <td>✓ Independent</td>
+            </tr>
+            <tr>
+                <td>Audit Committee</td>
+                <td>Majority IDs</td>
+                <td>Experienced in finance & compliance</td>
+                <td>✓ Independent</td>
+            </tr>
+            <tr>
+                <td>Compensation Committee</td>
+                <td>Majority IDs</td>
+                <td>Executive compensation experts</td>
+                <td>✓ Independent</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Promoter Ownership & Pledge Status</h3>
+    <div class="metric-grid">
+        <div class="metric-card">
+            <h4>Promoter Ownership</h4>
+            <div class="metric-value">52.78%</div>
+            <div class="metric-subtext">Well-aligned with minority shareholders</div>
+        </div>
+        <div class="metric-card">
+            <h4>Pledge Status</h4>
+            <div style="font-size: 20px; color: #10b981; font-weight: 700;">MINIMAL</div>
+            <div class="metric-subtext">No significant pledges; strong commitment</div>
+        </div>
+    </div>
+
+    <h3>Governance Quality Assessment</h3>
+    <ul>
+        <li><strong>✓ Positive Factors:</strong> Transparent disclosures, strong audit committee, no major governance red flags, consistent dividend (reinvestment focus), fair related-party transactions</li>
+        <li><strong>⚠️ Watch Points:</strong> Related-party transactions (rent from promoter entities), executive compensation, board diversity (limited women directors)</li>
+        <li><strong>Track Record:</strong> No audit qualifications (FY20-FY25), clean compliance history, SEBI guidelines fully adhered</li>
+    </ul>
+
+    <div class="highlight-box">
+        <p><strong>Governance Score: 7.5/10</strong> - Above average for mid-cap fashion retail. Management credibility backed by execution. No major red flags identified. Recommend monitoring related-party transactions and board diversity improvements.</p>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 16</div>
+</div>
+
+<!-- SLIDE 17: CATALYSTS & KEY MONITORABLES -->
+<div class="slide" style="position: relative;">
+    <h2>12-Month Catalyst Timeline & Key Monitorables</h2>
+
+    <h3>Next 3 Months (Dec 2025 - Feb 2026)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Timeline</th>
+                <th>Catalyst</th>
+                <th>Expected Impact</th>
+                <th>Monitor Metric</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>January 2026</strong></td>
+                <td>Q3 FY26 Results (likely Jan 30)</td>
+                <td>SSSG trends, margin trends, inventory management</td>
+                <td>SSSG recovery signal (target 1-2%)</td>
+            </tr>
+            <tr>
+                <td><strong>Feb 2026</strong></td>
+                <td>Dubai store opening (Apparel Group partnership)</td>
+                <td>International expansion validation, new market entry</td>
+                <td>Initial store performance metrics</td>
+            </tr>
+            <tr>
+                <td><strong>Feb-Mar 2026</strong></td>
+                <td>Holiday season final results & Easter demand</td>
+                <td>Year-end revenue run-rate, FY26 guidance confidence</td>
+                <td>Management commentary on FY26/FY27 outlook</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Next 6-12 Months (Mar 2026 - Dec 2026)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Timeline</th>
+                <th>Catalyst</th>
+                <th>Expected Impact</th>
+                <th>Monitor Metric</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>May 2026</strong></td>
+                <td><strong>FY26 Full-Year Results + FY27 Guidance</strong></td>
+                <td class="td-positive">Critical inflection point. FY27 guidance critical for re-rating</td>
+                <td>Revenue CAGR (FY26-FY27E), EPS growth, new category contribution %</td>
+            </tr>
+            <tr>
+                <td><strong>May-Jun 2026</strong></td>
+                <td>Store network expansion update (800+ → 880-900 target)</td>
+                <td>Growth trajectory confidence, per-store productivity improvements</td>
+                <td>Store addition pace, rental negotiations success</td>
+            </tr>
+            <tr>
+                <td><strong>Jun-Jul 2026</strong></td>
+                <td>Activewear/topwear launch initial performance data</td>
+                <td>Category expansion success, revenue diversification potential</td>
+                <td>New category sales %, repeat purchase rates, average transaction value</td>
+            </tr>
+            <tr>
+                <td><strong>Aug 2026</strong></td>
+                <td>Q1 FY27 Results (early Aug)</td>
+                <td>FY27 earnings momentum visible, analyst estimate revisions</td>
+                <td>Q1 FY27 EPS, SSSG trajectory, gross margin trends</td>
+            </tr>
+            <tr>
+                <td><strong>Nov 2026</strong></td>
+                <td>Q2 FY27 Results (early Nov)</td>
+                <td>Diwali 2025 demand recovery visible, 12M target achievement likely</td>
+                <td>H1 FY27 EPS run-rate, analyst consensus upgrades</td>
+            </tr>
+            <tr>
+                <td><strong>Dec 2026</strong></td>
+                <td><strong>12-Month Target Achievement Period</strong></td>
+                <td>Valuation multiples normalization, earnings re-rating complete</td>
+                <td>Stock price trajectory to ₹750 target</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Performance Indicators (Monthly/Quarterly Monitoring)</h3>
+    <div class="grid-3">
+        <div style="background: #f0f7ff; padding: 15px; border-radius: 3px; border-left: 4px solid #0066cc;">
+            <h4 style="color: #0066cc; font-size: 14px; margin-bottom: 10px;">Growth Metrics</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li><strong>SSSG:</strong> Target 2-3% (Q4FY26), 3-5% (FY27)</li>
+                <li><strong>Revenue Growth:</strong> 12%+ FY26E, 15%+ FY27E</li>
+                <li><strong>Store Growth:</strong> 80-90 (FY26), 100-120 (FY27)</li>
+            </ul>
+        </div>
+        
+        <div style="background: #f0fdf4; padding: 15px; border-radius: 3px; border-left: 4px solid #10b981;">
+            <h4 style="color: #10b981; font-size: 14px; margin-bottom: 10px;">Profitability Metrics</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li><strong>EBITDA Margin:</strong> 30-31% stable</li>
+                <li><strong>EPS Growth:</strong> 12-15% YoY</li>
+                <li><strong>ROCE:</strong> Target 18%+ (from current 16.4%)</li>
+            </ul>
+        </div>
+        
+        <div style="background: #fef2f2; padding: 15px; border-radius: 3px; border-left: 4px solid #ef4444;">
+            <h4 style="color: #ef4444; font-size: 14px; margin-bottom: 10px;">Risk Metrics</h4>
+            <ul style="font-size: 13px; margin-left: 15px;">
+                <li><strong>Gross Margin:</strong> Minimum 62% (watch for compression)</li>
+                <li><strong>Inventory Days:</strong> 80-90 (trend lower)</li>
+                <li><strong>SSSG:</strong> If negative, red flag for theme</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 17</div>
+</div>
+
+<!-- SLIDE 18: COMPREHENSIVE DISCLAIMER -->
+<div class="slide" style="position: relative;">
+    <h2>Important Disclaimer & Methodology</h2>
+
+    <div class="disclaimer">
+        <p><strong>DISCLAIMER NOTICE</strong></p>
+        <p style="margin-top: 10px;">This investment research report is prepared for educational, informational, and analytical purposes only. It should NOT be construed as an investment recommendation, offer to buy/sell securities, or financial advice. The information contained herein is based on sources believed to be reliable but is provided WITHOUT warranty of accuracy or completeness.</p>
+        
+        <p style="margin-top: 15px;"><strong>KEY DISCLOSURES:</strong></p>
+        <ul style="font-size: 13px; margin-left: 15px;">
+            <li><strong>Analyst Declaration:</strong> The analyst (Kunal Singla) has no financial interest, holdings, or relationships with Go Fashion (India) Limited or its promoters/affiliates.</li>
+            <li><strong>Past Performance:</strong> Historical stock price performance does not guarantee future results. Market conditions, company fundamentals, and regulatory environment can change materially.</li>
+            <li><strong>Projections & Estimates:</strong> All financial projections (FY26E, FY27E) and valuations are based on assumptions that may not materialize. Actual results may differ significantly from projections.</li>
+            <li><strong>Data Accuracy:</strong> Information sourced from company filings (Annual Reports, Q1-Q4 earnings releases), SEBI disclosures, sell-side research (8+ brokerages), and industry reports. Cross-verified with minimum 2 sources per material claim.</li>
+            <li><strong>Risk Disclosure:</strong> Equity investing carries inherent market risk. Sector-specific risks (retail slowdown), company risks (execution failures), and macroeconomic risks (GDP slowdown, inflation) can materially impact stock prices.</li>
+        </ul>
+
+        <p style="margin-top: 15px;"><strong>LIMITATION OF LIABILITY:</strong></p>
+        <p style="margin-top: 8px;">The analyst and associated parties shall not be liable for any direct, indirect, incidental, or consequential damages arising from or related to use of this report. Investment decisions should be made after thorough due diligence and consultation with qualified financial advisors, tax consultants, and legal counsel.</p>
+
+        <p style="margin-top: 15px;"><strong>REGULATORY CONTEXT:</strong></p>
+        <p style="margin-top: 8px;">This report is prepared in accordance with SEBI guidelines for research reports. All data as of December 15, 2025. Market conditions and company fundamentals can change rapidly. Investors should regularly review latest quarterly results, management disclosures, and analyst consensus before making investment decisions.</p>
+
+        <p style="margin-top: 15px;"><strong>VALUATION METHODOLOGY:</strong></p>
+        <ul style="font-size: 13px; margin-left: 15px;">
+            <li>P/E Multiple Approach: FY27E EPS × Historical/Peer P/E multiples</li>
+            <li>Scenario Analysis: Base (50%), Bull (25%), Bear (25%) probability weighting</li>
+            <li>Cross-verification: EV/EBITDA, Peer relative valuations, historical multiple bands</li>
+        </ul>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 20px;">
+        <p><strong>Report Date:</strong> December 15, 2025 | <strong>Data Currency:</strong> December 15, 2025 | <strong>Next Review:</strong> Post FY26 Q3 results (expected Jan 2026)</p>
+    </div>
+
+    <div class="linkedin-footer">
+        <a href="https://www.linkedin.com/in/singlakunal04" target="_blank">🔗 linkedin.com/in/singlakunal04</a>
+    </div>
+    <div class="footer">Report Date: December 15, 2025 | Page 18</div>
+</div>
+
+</body>
+</html>
